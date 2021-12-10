@@ -1,7 +1,24 @@
-import math
 from pathlib import Path
 
 input_file = Path("./21/1/input")
+
+# part one
+previous_depth = None
+increments, decrements = 0, 0
+with input_file.open("r") as file:
+    for line in file.readlines():
+        current_depth = int(line)
+        if previous_depth is not None:
+            if current_depth > previous_depth:
+                increments += 1
+            else:
+                decrements += 1
+        previous_depth = current_depth
+
+solution_part_one = increments
+print(f"{solution_part_one =}")
+
+# part two
 increments, decrements, equals = 0, 0, 0
 previous_depth = None
 with input_file.open("r") as file:
@@ -20,4 +37,5 @@ with input_file.open("r") as file:
                 decrements += 1
         previous_depth = current_depth
 
-print(f"{increments=}, {decrements=}, {equals=}")
+solution_part_two = increments
+print(f"{solution_part_two =}")
