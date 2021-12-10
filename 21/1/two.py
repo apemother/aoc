@@ -1,4 +1,3 @@
-import math
 from pathlib import Path
 
 input_file = Path("./21/1/input")
