@@ -8,10 +8,10 @@ aim = 0
 
 with input_file.open("r") as file:
     for line in file.readlines():
-        direction, velocity = line.strip().split(' ')
+        direction, velocity = line.strip().split(" ")
         velocity = int(velocity)
         if direction == "forward":
-            depth += (aim * velocity)
+            depth += aim * velocity
             horizontal += velocity
         elif direction == "up":
             aim -= velocity

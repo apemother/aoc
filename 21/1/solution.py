@@ -25,7 +25,7 @@ with input_file.open("r") as file:
     lines = file.readlines()
 
     for n in range(len(lines)):
-        start, stop = n, n+3
+        start, stop = n, n + 3
         current_window = lines[start:stop]
         current_depth = sum([int(line.strip()) for line in current_window])
         if previous_depth is not None:

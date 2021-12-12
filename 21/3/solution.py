@@ -49,7 +49,8 @@ class DecodeMethod(Enum):
     MOST = auto()
     LEAST = auto()
 
-def decode_rating(input: List[str], decode_method: DecodeMethod, n: int=0):
+
+def decode_rating(input: List[str], decode_method: DecodeMethod, n: int = 0):
     if len(input) == 1:
         rating = int(input[0].strip(), 2)
         print(f"decode_oxygen_generator_rating finished on {n = }")
@@ -66,14 +67,15 @@ def decode_rating(input: List[str], decode_method: DecodeMethod, n: int=0):
                 zeros.append(input[index])
 
         match decode_method:
-            case(DecodeMethod.MOST):
+            case (DecodeMethod.MOST):
                 if len(ones) >= len(zeros):
-                    return decode_rating(ones, decode_method, n+1)
-            case(DecodeMethod.LEAST):
+                    return decode_rating(ones, decode_method, n + 1)
+            case (DecodeMethod.LEAST):
                 if len(ones) < len(zeros):
-                    return decode_rating(ones, decode_method, n+1)
+                    return decode_rating(ones, decode_method, n + 1)
         # else return zeros
-        return decode_rating(zeros, decode_method, n+1)
+        return decode_rating(zeros, decode_method, n + 1)
+
 
 oxygen_generator_rating = decode_rating(lines, decode_method=DecodeMethod.MOST)
 co2_scrubber_rating = decode_rating(lines, decode_method=DecodeMethod.LEAST)
