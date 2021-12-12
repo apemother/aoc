@@ -65,16 +65,15 @@ def decode_rating(input: List[str], decode_method: DecodeMethod, n: int=0):
             else:
                 zeros.append(input[index])
 
-        if decode_method == DecodeMethod.MOST:
-            if len(ones) >= len(zeros):
-                return decode_rating(ones, decode_method, n+1)
-            else:
-                return decode_rating(zeros, decode_method, n+1)
-        elif decode_method == DecodeMethod.LEAST:
-            if len(ones) < len(zeros):
-                return decode_rating(ones, decode_method, n+1)
-            else:
-                return decode_rating(zeros, decode_method, n+1)
+        match decode_method:
+            case(DecodeMethod.MOST):
+                if len(ones) >= len(zeros):
+                    return decode_rating(ones, decode_method, n+1)
+            case(DecodeMethod.LEAST):
+                if len(ones) < len(zeros):
+                    return decode_rating(ones, decode_method, n+1)
+        # else return zeros
+        return decode_rating(zeros, decode_method, n+1)
 
 oxygen_generator_rating = decode_rating(lines, decode_method=DecodeMethod.MOST)
 co2_scrubber_rating = decode_rating(lines, decode_method=DecodeMethod.LEAST)
