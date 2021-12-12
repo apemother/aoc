@@ -45,8 +45,6 @@ power_consumption = epsilon_rate * gamma_rate
 print(f"{power_consumption = }")
 
 # part two
-oxygen_generator_rating = 0
-
 class DecodeMethod(Enum):
     MOST = auto()
     LEAST = auto()
