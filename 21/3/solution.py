@@ -1,6 +1,4 @@
-from os import device_encoding
 from pathlib import Path
-from pprint import pprint
 from typing import Dict
 
 input_file = Path("./21/3/input")
@@ -21,11 +19,10 @@ with input_file.open("r") as file:
 epsilon_rate_str = str()
 
 for n, bit_block in sorted_bits.items():
-    print(bit_block)
     bit_block_length = len(bit_block)
     num_ones = sum(bit_block)
     num_zeros = bit_block_length - num_ones
-    if num_ones > num_zeros:
+    if num_ones >= num_zeros:
         epsilon_rate_str += "1"
     else:
         epsilon_rate_str += "0"
