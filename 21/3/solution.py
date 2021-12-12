@@ -4,7 +4,7 @@ from enum import Enum, auto
 
 input_file = Path("./21/3/input")
 
-sorted_bits: Dict[int, int] = dict()
+sorted_bits: Dict[int, list] = dict()
 
 # part one
 with input_file.open("r") as file:
